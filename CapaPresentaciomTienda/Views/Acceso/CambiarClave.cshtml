@@ -1,0 +1,138 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CambiarClave</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #000;
+            color: #fff;
+            border-bottom: none;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-floating input {
+            border-radius: 15px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-floating label {
+            color: #000;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            border-color: #000;
+            border-radius: 15px;
+            padding: 10px;
+            width: 100%;
+        }
+
+            .btn-primary:hover {
+                background-color: #222;
+                border-color: #222;
+            }
+
+        .footer-link {
+            color: #000;
+        }
+
+            .footer-link:hover {
+                color: #555;
+                text-decoration: none;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg">
+                    <div class="card-header"><h3 class="font-weight-light my-4">Cambiar Contraseña</h3></div>
+                    <div class="card-body">
+                        <form action="@Url.Action("CambiarClave" , "Acceso")" method="post">
+                            <input class="form-control" type="hidden" value="@TempData["IdCliente"]" name="idcliente" />
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputPassword1" type="password" name="claveactual" value="@ViewData["vclave"]" />
+                                        <label for="inputPassword1">Contraseña Actual</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputPassword2" type="password" name="nuevaclave" />
+                                        <label for="inputPassword2">Nueva Contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputPassword3" type="password" name="confirmarclave" />
+                                        <label for="inputPassword3">Repita su nueva contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @{ if (ViewBag.Error != null)
+                                            {
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            @ViewBag.Error
+                                        </div>
+                                    </div>
+                                </div> } }
+
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Cambiar Contraseña</button></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small"><a href="@Url.Action("Index", "Acceso")" class="footer-link">Volver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

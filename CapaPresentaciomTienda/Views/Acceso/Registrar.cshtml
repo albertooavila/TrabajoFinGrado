@@ -1,0 +1,156 @@
+﻿@model CapaEntidad.Cliente
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registrar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #000;
+            color: #fff;
+            border-bottom: none;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-floating input {
+            border-radius: 15px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-floating label {
+            color: #000;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            border-color: #000;
+            border-radius: 15px;
+            padding: 10px;
+            width: 100%;
+        }
+
+            .btn-primary:hover {
+                background-color: #222;
+                border-color: #222;
+            }
+
+        .footer-link {
+            color: #000;
+        }
+
+            .footer-link:hover {
+                color: #555;
+                text-decoration: none;
+            }
+
+        .alert {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg">
+                    <div class="card-header"><h3 class="font-weight-light my-4">Crear una cuenta</h3></div>
+                    <div class="card-body">
+                        <form action="@Url.Action("Registrar","Acceso")" method="post">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @id = "txtnombre", value = ViewData["Nombres"] })
+                                        @Html.Label("txtnombre", "Nombres")
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", @id = "txtapellido", value = ViewData["Apellido"] })
+                                        @Html.Label("txtapellido", "Apellido")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Correos, new { @class = "form-control", @id = "txtcorreos", value = ViewData["Correos"] })
+                                @Html.Label("txtcorreos", "Correos")
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        @Html.PasswordFor(m => m.Clave, new { @class = "form-control", @id = "txtclave" })
+                                        @Html.Label("txtclave", "Contraseña")
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        @Html.PasswordFor(m => m.ConfirmarClave, new { @class = "form-control", @id = "txtconfirmaclave", value = ViewData["Correo"] })
+                                        @Html.Label("txtconfirmaclave", "Confirmar contraseña")
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="terminos" required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto los <a href="@Url.Action("Terminos","Acceso")">términos y condiciones</a>.
+                                </label>
+                            </div>
+
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-block" type="submit">Crear una cuenta</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small"><a href="@Url.Action("Index","Acceso")" class="footer-link">¿Ya tienes una cuenta? Inicia sesión</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function () {
+                if (!$('#terminos').is(':checked')) {
+                    alert("Por favor, acepta los términos y condiciones.");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

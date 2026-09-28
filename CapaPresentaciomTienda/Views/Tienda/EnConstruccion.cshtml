@@ -1,0 +1,70 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Términos y Condiciones - Página en Construcción</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #000;
+            color: #fff;
+            border-bottom: none;
+            text-align: center;
+            padding: 20px 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .footer-link {
+            color: #000;
+        }
+
+            .footer-link:hover {
+                color: #555;
+                text-decoration: none;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <div class="card-header"><h3 class="font-weight-light my-4">Página en Construcción</h3></div>
+                    <div class="card-body">
+                        <center><p>Estamos trabajando en ello, pronto estará disponible.</p></center>
+                    </div>
+                    <div class="card-footer text-center">
+                        <small><a href="@Url.Action("Carrito", "Tienda")" class="footer-link">Volver al inicio</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
