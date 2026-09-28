@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# NuGet package cache (packages.config projects restore this locally)
+packages/
+*.nupkg
+
+# ASP.NET / local data
+App_Data/*.mdf
+App_Data/*.ldf
+
+# Logs / temp
+*.log
+*.tmp
+*.cache
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local secret/config overrides
+*.secrets.config
+Web.local.config
